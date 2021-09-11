@@ -5,7 +5,13 @@
         <div class="filter" v-for="(filter, key) in filters" :key="key">
           <h3 class="filter__title">{{$terms[key]}}</h3>
           <ul class="filter__items">
-            <li class="filter__item" v-for="item in filter" :key="item">{{item}}</li>
+            <li class="filter__item"
+            :class="{'filter__item--active': item.active}"
+            v-for="item in filter"
+            :key="item.name"
+            @click="updateWheelsFilter(item)">
+              {{item.name}}
+            </li>
           </ul>
         </div>
       </div>
@@ -13,12 +19,24 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Filters',
   computed: {
-    ...mapGetters({ filters: 'getWheelsFilter' })
+    ...mapGetters(['getWheelsFilter']),
+    filters () {
+      const obj = {}
+      this.getWheelsFilter.map(item => {
+        if (!obj[item.category]) obj[item.category] = []
+
+        obj[item.category].push(item)
+      })
+      return obj
+    }
+  },
+  methods: {
+    ...mapActions(['updateWheelsFilter'])
   }
 }
 </script>

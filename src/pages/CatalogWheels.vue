@@ -16,7 +16,8 @@
 import ProductCardWheel from '../components/ProductCardWheel.vue'
 import Brands from '../components/Brands.vue'
 import Filters from '../components/Filters.vue'
-import { mapGetters } from 'vuex'
+import wheels from '../assets/js/wheels'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'CatalogWheels',
@@ -25,8 +26,14 @@ export default {
     Filters,
     ProductCardWheel
   },
+  created () {
+    this.fetchWheels(wheels)
+  },
   computed: {
     ...mapGetters({ wheels: 'getWheels' })
+  },
+  methods: {
+    ...mapActions(['fetchWheels'])
   }
 }
 </script>
