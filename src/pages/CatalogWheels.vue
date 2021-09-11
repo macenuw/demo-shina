@@ -1,24 +1,29 @@
 <template>
-  <main class="new-wheels container" id="content">
-    <Brands/>
+  <main class="new-wheels" id="content">
+    <Brands class="brands--bg"/>
+    <div class="new-wheels__inner container">
         <h2 class="new-wheels__title title">Каталог Дисков</h2>
+        <Filters/>
         <div class="products-grid">
-          <ProductCard v-for="wheel in wheels" :key="wheel.id" :card="wheel"
-            @click="$router.push({name: 'ProductPage', params: { id: wheel.id }})"/>
+          <ProductCardWheel v-for="wheel in wheels" :key="wheel.id" :card="wheel"
+           />
+        </div>
         </div>
     </main>
 </template>
 
 <script>
-import ProductCard from '../components/ProductCard.vue'
+import ProductCardWheel from '../components/ProductCardWheel.vue'
 import Brands from '../components/Brands.vue'
+import Filters from '../components/Filters.vue'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'CatalogWheels',
   components: {
     Brands,
-    ProductCard
+    Filters,
+    ProductCardWheel
   },
   computed: {
     ...mapGetters({ wheels: 'getWheels' })

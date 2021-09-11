@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import TopSection from '../components/TopSection.vue';
-import PromoTires from '../components/PromoTires.vue';
-import Brands from '../components/Brands.vue';
-import PromoWheels from '../components/PromoWheels.vue';
-import Info from '../components/Info.vue';
-import Contacts from '../components/Contacts.vue';
-import Question from '../components/Question.vue';
+import TopSection from '../components/TopSection.vue'
+import PromoTires from '../components/PromoTires.vue'
+import Brands from '../components/Brands.vue'
+import PromoWheels from '../components/PromoWheels.vue'
+import Info from '../components/Info.vue'
+import Contacts from '../components/Contacts.vue'
+import Question from '../components/Question.vue'
 
 export default {
   name: 'MainPage',
@@ -28,9 +28,9 @@ export default {
     PromoWheels,
     Info,
     Contacts,
-    Question,
-  },
-};
+    Question
+  }
+}
 </script>
 
 <style lang="scss">

@@ -23,12 +23,10 @@ body {
     >.footer {}
 }
 
-
 .container {
     max-width: 1400px;
     padding: 0 15px;
     margin: 0 auto;
-
 }
 
 .d-flex {
@@ -75,11 +73,9 @@ body {
         line-height: 34px;
     }
 }
-
-.new-wheels {
-    padding: 30px 15px;
+.new-wheels{
+    padding: 60px 0 50px;
 }
-
 .products-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

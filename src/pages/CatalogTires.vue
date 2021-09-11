@@ -1,77 +1,33 @@
 <template>
-  <main class="new-wheels container" id="content">
-        <Brands/>
+  <main class="new-wheels" id="content">
+        <Brands class="brands--bg"/>
+        <div class="new-wheels__inner container">
         <h2 class="new-wheels__title title">Каталог Шин</h2>
+        <Filters/>
         <div class="products-grid">
-          <ProductCard v-for="tire in tires" :key="tire.id" :card="tire"/>
+           <ProductCardTires v-for="tire in tires" :key="tire.id" :card="tire"
+            @click="$router.push({name: 'ProductPage', params: { id: tire.id }})"/>
         </div>
-         <router-link :to="{name:'CatalogTires'}"></router-link>
+         </div>
     </main>
 </template>
 
 <script>
-import ProductCard from '../components/ProductCard.vue';
-import Brands from '../components/Brands.vue';
-
+import ProductCardTires from '../components/ProductCardTire.vue'
+import Brands from '../components/Brands.vue'
+import Filters from '../components/Filters.vue'
+import { mapGetters } from 'vuex'
 export default {
   name: 'CatalogTires',
   components: {
     Brands,
-    ProductCard,
+    Filters,
+    ProductCardTires
   },
-  data: () => ({
-    tires: [
-      {
-        id: 1,
-        brand: 'Micheline',
-        model: 'Energy Saver',
-        condition: 9.7,
-        radius: '16',
-        season: 'Лето',
-        width: 225,
-        height: 55,
-        amount: 4,
-        price: 800,
-      },
-      {
-        id: 2,
-        brand: 'Micheline',
-        model: 'Energy Saver',
-        condition: 9.7,
-        radius: '16',
-        season: 'Лето',
-        width: 225,
-        height: 55,
-        amount: 4,
-        price: 800,
-      },
-      {
-        id: 3,
-        brand: 'Micheline',
-        model: 'Energy Saver',
-        condition: 9.7,
-        radius: '16',
-        season: 'Лето',
-        width: 225,
-        height: 55,
-        amount: 4,
-        price: 800,
-      },
-      {
-        id: 4,
-        brand: 'Micheline',
-        model: 'Energy Saver',
-        condition: 9.7,
-        radius: '16',
-        season: 'Лето',
-        width: 225,
-        height: 55,
-        amount: 4,
-        price: 800,
-      },
-    ],
-  }),
-};
+  computed: {
+    ...mapGetters({ tires: 'getTires' })
+  }
+}
 </script>
 
 <style lang="scss" scoped>

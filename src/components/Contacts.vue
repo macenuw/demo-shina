@@ -48,8 +48,8 @@
 export default {
   name: 'Contacts',
   components: {
-  },
-};
+  }
+}
 </script>
 <style lang="scss" scoped>
 .contact {
@@ -80,6 +80,7 @@ export default {
 
     @media(max-width:850px) {
       align-items: center;
+      margin-right: 0;
       margin-bottom: 30px;
     }
   }

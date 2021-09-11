@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import ProductCard from './ProductCard.vue';
+import ProductCard from './ProductCardTire.vue'
 
 export default {
   name: 'PromoWheels',
   components: {
-    ProductCard,
+    ProductCard
   },
   data: () => ({
     tires: [
@@ -28,7 +28,7 @@ export default {
         width: 225,
         height: 55,
         amount: 4,
-        price: 800,
+        price: 800
       },
       {
         id: 2,
@@ -40,7 +40,7 @@ export default {
         width: 225,
         height: 55,
         amount: 4,
-        price: 800,
+        price: 800
       },
       {
         id: 3,
@@ -52,7 +52,7 @@ export default {
         width: 225,
         height: 55,
         amount: 4,
-        price: 800,
+        price: 800
       },
       {
         id: 4,
@@ -64,11 +64,11 @@ export default {
         width: 225,
         height: 55,
         amount: 4,
-        price: 800,
-      },
-    ],
-  }),
-};
+        price: 800
+      }
+    ]
+  })
+}
 </script>
 
 <style lang="scss" scoped>

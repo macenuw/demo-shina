@@ -1,6 +1,7 @@
 <template>
-    <main class="contact container">
-      <Brands/>
+    <main class="contact">
+      <Brands class="brands--bg"/>
+      <div class="contact__inner container">
         <h2 class="contact__title title">
             Контакты
         </h2>
@@ -42,21 +43,21 @@
                     loading="lazy"></iframe>
             </div>
         </div>
+        </div>
     </main>
 </template>
 <script>
-import Brands from '../components/Brands.vue';
+import Brands from '../components/Brands.vue'
 
 export default {
   name: 'ContactsPage',
   components: {
-    Brands,
-  },
-};
+    Brands
+  }
+}
 </script>
 <style lang="scss" scoped>
 .contact {
-  padding: 30px 15px;
   margin-bottom: 70px;
   width: 100%;
 
@@ -83,6 +84,7 @@ export default {
 
     @media(max-width:850px) {
       align-items: center;
+      margin-right:0;
       margin-bottom: 30px;
     }
   }

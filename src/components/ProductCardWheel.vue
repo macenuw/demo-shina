@@ -1,36 +1,32 @@
 <template>
-    <router-link :to="{name:'ProductPage'}" class="product-card">
+    <router-link :to="{name: 'ProductPage', params: { id: card.id }}" class="product-card">
         <div class="product-card__img-inner" v-if="card">
             <img :src="imageUrl"
             :alt="imageAlt" class="product-card__img">
             <span class="product-card__brand">{{card.brand}}</span>
         </div>
         <div class="product-card__info">
-            <h3 class="product-card__name">{{card.brand}}{{card.model}}</h3>
+            <h3 class="product-card__name">{{card.brand}} {{card.model}}</h3>
             <div class="product-card__top-info">
                 <span class="product-card__reit">Состояние {{card.condition}}</span>
                 <span class="product-card__number">Код товара: {{card.id}}</span>
             </div>
             <ul class="product-card__info-list">
-                <li class="product-card__info-item">
+                <li class="product-card__info-item product-card__info-item--radius">
                     <span class="product-card__category">Радиус</span>
                     <span class="product-card__category-info">R{{card.radius}}</span>
                 </li>
-                <li class="product-card__info-item">
-                    <span class="product-card__category">Сезон</span>
-                    <span class="product-card__category-info">{{card.season}}</span>
-                </li>
-                <li class="product-card__info-item">
+                <li class="product-card__info-item product-card__info-item--width">
                     <span class="product-card__category">Ширина</span>
                     <span class="product-card__category-info">{{card.width}}</span>
                 </li>
-                <li class="product-card__info-item">
-                    <span class="product-card__category">Высота</span>
-                    <span class="product-card__category-info">{{card.height}}</span>
-                </li>
-                <li class="product-card__info-item">
+                <li class="product-card__info-item product-card__info-item--amount">
                     <span class="product-card__category">Колличество</span>
                     <span class="product-card__category-info">{{card.amount}}шт</span>
+                </li>
+                <li class="product-card__info-item product-card__info-item--bolt-pattern">
+                    <span class="product-card__category">Разболтовка</span>
+                    <span class="product-card__category-info">{{card.bolt}}</span>
                 </li>
             </ul>
             <div class="product-card__price-inner">
@@ -43,23 +39,23 @@
 
 <script>
 export default {
-  name: 'ProductCard',
+  name: 'ProductCardWheel',
   props: ['card'],
   computed: {
-    imageUrl() {
+    imageUrl () {
       const {
-        brand, radius, width, height, id,
-      } = this.card;
-      return `/images/tires/${brand}-${radius}-${width}-${height}-${id}-1.jpg`;
+        brand, radius, width, id
+      } = this.card
+      return `/images/wheels/${brand}-${radius}-${width}-${id}-1.jpg`
     },
-    imageAlt() {
+    imageAlt () {
       const {
-        brand, model, radius, width, height,
-      } = this.card;
-      return `Шины ${brand} ${model} R${radius}/${width}/${height}`;
-    },
-  },
-};
+        brand, model, radius, width
+      } = this.card
+      return `Диски ${brand} ${model} R${radius}/${width}`
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -113,6 +109,9 @@ export default {
         flex-direction: column;
         padding: 8px 8px 8px 16px;
         width: 100%;
+        @media(max-width: 600px) {
+           padding: 16px 0 8px;
+        }
     }
     &__name {
         font-size: 22px;
@@ -158,6 +157,7 @@ export default {
     &__info-item {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 12px;
         border-bottom: 1px dashed black;
     }

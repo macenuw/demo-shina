@@ -1,6 +1,7 @@
 <template>
-    <section class="brands container">
-        <div class="slider">
+    <section class="brands">
+      <div class="brands__inner"></div>
+        <div class="slider container">
             <VueSlickCarousel v-bind="settings">
                 <div class="slider__item">
                     <img src="../assets/images/continental.png" alt="">
@@ -26,14 +27,14 @@
 </template>
 
 <script>
-import VueSlickCarousel from 'vue-slick-carousel';
-import 'vue-slick-carousel/dist/vue-slick-carousel.css';
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default {
   name: 'Brands',
   components: { VueSlickCarousel },
-  data() {
+  data () {
     return {
       settings: {
         slidesToShow: 4,
@@ -45,40 +46,51 @@ export default {
           breakpoint: 1160,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 1,
-          },
+            slidesToScroll: 1
+          }
         },
         {
           breakpoint: 900,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 1,
-          },
+            slidesToScroll: 1
+          }
         },
         {
           breakpoint: 600,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1,
-          },
-        },
-        ],
-      },
-    };
-  },
+            slidesToScroll: 1
+          }
+        }
+        ]
+      }
+    }
+  }
 
-};
+}
 </script>
 
 <style lang="scss" scoped>
 .brands {
+    position: relative;
     padding: 30px 0;
-    &--margin {
-        margin-top: -150px;
+    &--bg{
+      .brands__inner{
+       display: block;
+      }
+    }
+    &__inner{
+      display: none;
+      position: absolute;
+      background-color: black;
+      height: 50%;
+      top: 0;
+      left: 0;
+      right: 0;
     }
     .slider {
         padding: 30px 0;
-
     }
     .slider__item {
         background-color: #FFFFFF;

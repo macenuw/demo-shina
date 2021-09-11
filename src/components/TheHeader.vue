@@ -5,27 +5,27 @@
         <img src="@/assets/images/demo-shina-logo.png" alt="Логотип сайта" class="logo__img">
       </router-link>
       <nav class="haeder__menu">
-        <button class="header__menu-btn" onclick="openMenu()">
+        <button class="header__menu-btn" @click="menuOpened=!menuOpened">
           <span class="header__btn-span"></span>
         </button>
-        <ul class="menu" id="menu">
+        <ul :class="['menu', {active:menuOpened}]" >
           <li class="menu__item">
-            <router-link :to="{name:'CatalogTires'}" class="menu__link" onclick="openMenu()">
+            <router-link :to="{name:'CatalogTires'}" class="menu__link" @click.native="menuOpened=false">
               Каталог Шин
               </router-link>
           </li>
           <li class="menu__item">
-            <router-link :to="{name:'CatalogWheels'}" class="menu__link" onclick="openMenu()">
+            <router-link :to="{name:'CatalogWheels'}" class="menu__link" @click.native="menuOpened=false">
               Каталог Дисков
               </router-link>
           </li>
           <li class="menu__item">
-            <router-link :to="{name:'Delivery'}" class="menu__link" onclick="openMenu()">
+            <router-link :to="{name:'Delivery'}" class="menu__link" @click.native="menuOpened=false">
               Доставка и оплата
               </router-link>
           </li>
           <li class="menu__item">
-            <router-link :to="{name:'Contacts'}" class="menu__link" onclick="openMenu()">
+            <router-link :to="{name:'Contacts'}" class="menu__link" @click.native="menuOpened=false">
               Контакты
               </router-link>
           </li>
@@ -36,6 +36,13 @@
 </template>
 
 <script>
+
+export default {
+  name: 'TheHeader',
+  data: () => ({
+    menuOpened: false
+  })
+}
 
 </script>
 

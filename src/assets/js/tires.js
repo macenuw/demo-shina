@@ -11,7 +11,7 @@ const tires = [
     amount: 4,
     year: 2021,
     contry: 'Германия',
-    price: 800,
+    price: 800
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const tires = [
     amount: 4,
     year: 2021,
     contry: 'Германия',
-    price: 800,
+    price: 800
   },
   {
     id: 3,
@@ -38,8 +38,8 @@ const tires = [
     height: 55,
     amount: 4,
     year: 2021,
-    contry: 'Германия',
-    price: 800,
+    country: 'Германия',
+    price: 800
   },
   {
     id: 4,
@@ -53,9 +53,8 @@ const tires = [
     amount: 4,
     year: 2021,
     contry: 'Германия',
-    price: 800,
-  },
-];
-export default {
-  tires,
-};
+    bolt: '5*100',
+    price: 800
+  }
+]
+export default tires

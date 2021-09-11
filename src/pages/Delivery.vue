@@ -1,6 +1,7 @@
 <template>
-    <main class="container delivery">
-        <Brands/>
+    <main class="delivery">
+        <Brands class="brands--bg"/>
+        <div class="delivery__inner container">
         <h2 class="delivery__title title">
             Доставка и оплата
         </h2>
@@ -30,18 +31,19 @@
                 в среднем это занимает 1-3 рабочих дня.
             </p>
         </div>
+        </div>
     </main>
 </template>
 
 <script>
-import Brands from '../components/Brands.vue';
+import Brands from '../components/Brands.vue'
 
 export default {
   name: 'Delivery',
   components: {
-    Brands,
-  },
-};
+    Brands
+  }
+}
 </script>
 
 <style lang="scss" scoped>
