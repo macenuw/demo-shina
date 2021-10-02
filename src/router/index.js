@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MainPage from '../pages/Main.vue'
-import Contacts from '../pages/ContactsPage.vue'
+import Contacts from '../pages/Contacts.vue'
 import Delivery from '../pages/Delivery.vue'
-import CatalogTires from '../pages/CatalogTires.vue'
-import CatalogWheels from '../pages/CatalogWheels.vue'
+import Catalog from '../pages/Catalog.vue'
 import ProductPage from '../pages/ProductPage.vue'
+import RouterView from '../components/RouterView'
 
 Vue.use(VueRouter)
 
@@ -26,14 +26,29 @@ const routes = [
     component: Delivery
   },
   {
-    path: '/catalog-tires',
-    name: 'CatalogTires',
-    component: CatalogTires
-  },
-  {
-    path: '/catalog-wheels',
-    name: 'CatalogWheels',
-    component: CatalogWheels
+    path: '/catalog',
+    name: 'Catalog',
+    component: RouterView,
+    redirect: { name: 'CatalogTires' },
+    children: [
+      {
+        path: ':type(tires|wheels)/:id',
+        name: 'Product',
+        component: ProductPage
+      },
+      {
+        path: 'tires',
+        name: 'CatalogTires',
+        component: Catalog,
+        meta: { type: 'tires' }
+      },
+      {
+        path: 'wheels',
+        name: 'CatalogWheels',
+        component: Catalog,
+        meta: { type: 'wheels' }
+      }
+    ]
   },
   {
     path: '/product-page/:id',

@@ -1,142 +1,108 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
+import tires from '../assets/js/tires' // TODO: DELETE
+import wheels from '../assets/js/wheels' // TODO: DELETE
+
+const config = {
+  tires: {
+    filters: ['radius', 'width', 'height', 'season'],
+    catalogUrl:
+      'https://drive.google.com/file/d/13IZi1qYKhsVoq4AxNwyY3bknPi5SpXPI/view?usp=sharing',
+    mocks: tires // TODO: DELETE
+  },
+  wheels: {
+    filters: ['radius', 'width', 'bolt'],
+    catalogUrl:
+      'https://drive.google.com/file/d/1aNf1U0huu_8rf78qAXBIc5WD5pzlTJQN/view?usp=sharing',
+    mocks: wheels // TODO: DELETE
+  }
+}
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    wheels: [],
-    wheelsFilters: [],
-    tires: [],
-    tiresFilters: []
+    type: '',
+    catalog: [],
+    filters: [],
+    categories: {}
   },
   getters: {
-    getWheels: (state) => {
-      const activeFilters = state.wheelsFilters.filter(item => item.active)
+    catalog: state => {
+      let activeFilters = []
+      state.filters.forEach(category => {
+        activeFilters = [...activeFilters, ...category.filter(item => item.active)]
+      })
 
-      if (!activeFilters.length) return state.wheels
+      if (!activeFilters.length) return state.catalog
 
-      const expectedResult = activeFilters.length
-      return state.wheels.filter(wheel => {
-        let actualResult = 0
-        activeFilters.map(filter => {
-          if (filter.name === wheel[filter.category]) actualResult++
-        })
-        return actualResult === expectedResult
+      return state.catalog.filter(item => {
+        return activeFilters.some(filter => filter.name === item[filter.category])
       })
     },
-    getTires: (state) => {
-      const activeFilters = state.tiresFilters.filter(item => item.active)
-
-      if (!activeFilters.length) return state.tires
-
-      const expectedResult = activeFilters.length
-      return state.tires.filter(tire => {
-        let actualResult = 0
-        activeFilters.map(filter => {
-          if (filter.name === tire[filter.category]) actualResult++
-        })
-        return actualResult === expectedResult
-      })
-    },
-    getWheel: (state) => (id) => state.wheels.find(item => item.id === id),
-    getWheelsFilter: (state) => state.wheelsFilters,
-    getTire: (state) => (id) => state.tires.find(item => item.id === id),
-    getTiresFilter: (state) => state.tiresFilters
-
+    catalogItem: state => id => state.catalog.find(item => item.id === id),
+    catalogFilters: state => state.filters,
+    catalogType: state => state.type,
+    filterCategories: state => state.categories
   },
   mutations: {
-    setWheels: (state, data) => {
-      state.wheels = data
+    setCatalogType: (state, type) => {
+      state.type = type
     },
-    setWheelsFilter: (state, data) => {
-      state.wheelsFilters = [
-        ...[...new Set(data.map(item => item.radius))].map(item => ({
-          name: item,
-          category: 'radius',
-          active: false
-        })),
-        ...[...new Set(data.map(item => item.width))].map(item => ({
-          name: item,
-          category: 'width',
-          active: false
-        })),
-        ...[...new Set(data.map(item => item.bolt))].map(item => ({
-          name: item,
-          category: 'bolt',
-          active: false
-        }))
-      ]
+    setCatalog: (state, data) => {
+      state.catalog = data
     },
-    updateWheelsFilter: (state, filterItem) => {
-      state.wheelsFilters
-        .filter(item => filterItem.category === item.category)
-        .map(item => {
-          if (filterItem.name === item.name) {
-            item.active = !item.active
-          } else {
-            if (item.active) item.active = false
+    setCatalogFilters: (state, catalog) => {
+      const _filters = []
+
+      config[state.type].filters.forEach(category => {
+        const options = [...new Set(catalog.map(item => item[category]))]
+        const filterOptions = options
+          .map(value => ({
+            name: value,
+            category: category,
+            active: false
+          }))
+          .sort(function (a, b) {
+            if (a.name < b.name) return -1
+            if (a.name > b.name) return 1
+            return 0
+          })
+        _filters.push(filterOptions)
+      })
+
+      state.filters = _filters
+    },
+    updateCatalogFilter: (state, { category, name }) => {
+      state.filters = state.filters.map(filterCategory => {
+        return filterCategory.map(filter => {
+          if (category === filter.category && name === filter.name) {
+            filter.active = !filter.active
           }
-          return item
+          return filter
         })
-    },
-    setTires: (state, data) => {
-      state.tires = data
-    },
-    setTiresFilter: (state, data) => {
-      state.tiresFilters = [
-        ...[...new Set(data.map(item => item.radius))].map(item => ({
-          name: item,
-          category: 'radius',
-          active: false
-        })),
-        ...[...new Set(data.map(item => item.width))].map(item => ({
-          name: item,
-          category: 'width',
-          active: false
-        })),
-        ...[...new Set(data.map(item => item.height))].map(item => ({
-          name: item,
-          category: 'height',
-          active: false
-        }))
-      ]
-    },
-    updateTiresFilter: (state, filterItem) => {
-      state.tiresFilters
-        .filter(item => filterItem.category === item.category)
-        .map(item => {
-          if (filterItem.name === item.name) {
-            item.active = !item.active
-          } else {
-            if (item.active) item.active = false
-          }
-          return item
-        })
+      })
     }
   },
   actions: {
-    fetchWheels ({
-      commit
-    }, data) {
-      commit('setWheels', data)
-      commit('setWheelsFilter', data)
+    fetchCatalog ({ state, commit }) {
+      axios
+        .get(config[state.type].catalogUrl, {
+          headers: { 'Access-Control-Allow-Origin': '*' }
+        })
+        .then(response => {
+          commit('setCatalog', response.data)
+          commit('setCatalogFilters', response.data)
+        })
+        // TODO: delete this after place project on domain (FTP)
+        .finally(_ => {
+          commit('setCatalog', config[state.type].mocks)
+          commit('setCatalogFilters', config[state.type].mocks)
+        })
     },
-    updateWheelsFilter ({
-      commit
-    }, data) {
-      commit('updateWheelsFilter', data)
-    },
-    fetchTires ({
-      commit
-    }, data) {
-      commit('setTires', data)
-      commit('setTiresFilter', data)
-    },
-    updateTiresFilter ({
-      commit
-    }, data) {
-      commit('updateTiresFilter', data)
+    updateCatalogFilter ({ commit }, data) {
+      commit('updateCatalogFilter', data)
     }
   }
 })

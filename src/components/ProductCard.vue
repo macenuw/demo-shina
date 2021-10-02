@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="{name:'Product', params: {id: card.id}}" class="product-card">
+    <router-link :to="{name:'Product', params: {type, id: card.id}}" class="product-card">
         <div class="product-card__img-inner" v-if="card">
             <img :src="imageUrl"
             :alt="imageAlt" class="product-card__img">
@@ -52,7 +52,7 @@
 <script>
 export default {
   name: 'ProductCard',
-  props: ['card'],
+  props: ['card', 'type'],
   computed: {
     imageUrl () {
       const {
