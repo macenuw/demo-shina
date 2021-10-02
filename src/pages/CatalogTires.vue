@@ -6,7 +6,7 @@
         <Filters/>
         <div class="products-grid">
            <ProductCardTires v-for="tire in tires" :key="tire.id" :card="tire"
-            @click="$router.push({name: 'ProductPage', params: { id: tire.id }})"/>
+           />
         </div>
          </div>
     </main>
@@ -15,8 +15,11 @@
 <script>
 import ProductCardTires from '../components/ProductCardTire.vue'
 import Brands from '../components/Brands.vue'
-import Filters from '../components/Filters.vue'
-import { mapGetters } from 'vuex'
+import Filters from '../components/FiltersTires.vue'
+import tires from '../../public/tires'
+import { mapGetters, mapActions } from 'vuex'
+import axios from 'axios'
+
 export default {
   name: 'CatalogTires',
   components: {
@@ -24,8 +27,24 @@ export default {
     Filters,
     ProductCardTires
   },
+  data () {
+    return {
+      tires: null
+    }
+  },
+  mounted () {
+    axios
+      .get('https://drive.google.com/file/d/13IZi1qYKhsVoq4AxNwyY3bknPi5SpXPI/view?usp=sharing')
+      .then(response => (this.tires = response.tires))
+  },
+  created () {
+    this.fetchTires(tires)
+  },
   computed: {
     ...mapGetters({ tires: 'getTires' })
+  },
+  methods: {
+    ...mapActions(['fetchTires'])
   }
 }
 </script>

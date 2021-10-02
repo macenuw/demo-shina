@@ -9,7 +9,7 @@
             :class="{'filter__item--active': item.active}"
             v-for="item in filter"
             :key="item.name"
-            @click="updateWheelsFilter(item)">
+            @click="updateTiresFilter(item)">
               {{item.name}}
             </li>
           </ul>
@@ -24,10 +24,10 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Filters',
   computed: {
-    ...mapGetters(['getWheelsFilter']),
+    ...mapGetters(['getTiresFilter']),
     filters () {
       const obj = {}
-      this.getWheelsFilter.map(item => {
+      this.getTiresFilter.map(item => {
         if (!obj[item.category]) obj[item.category] = []
 
         obj[item.category].push(item)
@@ -36,7 +36,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['updateWheelsFilter'])
+    ...mapActions(['updateTiresFilter'])
   }
 }
 </script>

@@ -15,8 +15,8 @@
 <script>
 import ProductCardWheel from '../components/ProductCardWheel.vue'
 import Brands from '../components/Brands.vue'
-import Filters from '../components/Filters.vue'
-import wheels from '../assets/js/wheels'
+import Filters from '../components/FiltersWheels.vue'
+import wheels from '../../public/wheels'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
