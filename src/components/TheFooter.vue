@@ -26,7 +26,7 @@
                 </li>
             </ul>
             <div class="footer__contact">
-                <a href="tel+380935417781" class="contact__tel">Тел: 0935417781 Сергей</a>
+                <a href="tel+380935417781" class="contact__tel">0935417781 Сергей</a>
                 <ul class="contact__social">
                     <li class="contact__item">
                         <a href="#" class="contact__link">
@@ -129,14 +129,14 @@
     }
     &__contact {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         max-width: 800px;
         @media(max-width: 850px) {
             flex-direction: column;
         }
         .contact__tel {
             color: white;
-            margin-right: 150px;
+            font-size: 36px;
             @media(max-width: 850px) {
                 margin-right: 0;
                 text-align: center;
