@@ -4,7 +4,6 @@
             <h1 class="top-section__title">
                 Шины и Диски из Германии на складе в Одессе
             </h1>
-            <a href="#" class="top-section__link">Перейти в каталог</a>
             <a href="#content" class="top-section__link-down">
                 <img src="../assets/images/koleso.png" alt="" class="top-section__img-down">
              </a>
