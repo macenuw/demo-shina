@@ -88,7 +88,7 @@ export default {
     border-radius: 8px;
     padding: 8px;
     display: flex;
-    max-width: 650px;
+    width: 100%;
     color: black;
     box-shadow: 20px 15px 100px rgba(0, 0, 0, 0.25);
     @media(max-width: 1160px) {
