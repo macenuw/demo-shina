@@ -68,33 +68,35 @@ export default {
   padding: 0 5%;
   &__title {
     font-weight: bold;
-    font-size: 36px;
+    font-size: 24px;
   }
   &__items {
     display: flex;
     padding-top: 16px;
   }
   &__item {
-    padding: 8px 24px;
+    padding: 4px 16px;
     background-color: white;
     color: black;
     border: 2px solid black;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 18px;
+    line-height: 1.2;
     transition: 0.3s;
     &:not(:last-child) {
       margin-right: 14px;
     }
     &:hover {
-      background-color: red;
-      color: white;
-      border-color: white;
+      background-color: white;;
+      color: red;
+      border-color: red;
     }
     &--active {
       background-color: red;
       color: white;
-      border-color: white;
+      border-color: red;
     }
   }
 }

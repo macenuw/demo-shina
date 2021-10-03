@@ -159,3 +159,19 @@ const tires = [{
 
 ]
 export default tires
+
+// ПРИМЕР
+// {
+//   id: 4,                   Код товара
+//   brand: 'Micheline',      Бренд
+//   model: 'Energy Saver',   Модель
+//   condition: 9.7,          Состояние
+//   radius: '16',            Радиус
+//   season: 'Лето',          Сезон
+//   width: 225,              Ширина
+//   height: 55,              Высота
+//   amount: 4,               Колличество
+//   year: 2021,              Год Производства
+//   country: 'Германия',     Страна Производитель
+//   price: 800               Цена
+// },
