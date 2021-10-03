@@ -72,6 +72,7 @@ export default {
   }
   &__items {
     display: flex;
+    flex-wrap: wrap;
     padding-top: 16px;
   }
   &__item {
@@ -85,6 +86,7 @@ export default {
     font-size: 18px;
     line-height: 1.2;
     transition: 0.3s;
+    margin: 5px 0;
     &:not(:last-child) {
       margin-right: 14px;
     }

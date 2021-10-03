@@ -12,9 +12,9 @@
   "country": "Германия",
   "price": 800,
   "images": [
-    "/images/tires/Micheline-16-225-55-1-1.jpg",
-    "/images/tires/Micheline-16-225-55-1-1.jpg",
-    "/images/tires/Micheline-16-225-55-1-1.jpg"
+    "/products/images/tires/Micheline-16-225-55-1-1.jpg",
+    "/products/images/tires/Micheline-16-225-55-1-1.jpg",
+    "/products/images/tires/Micheline-16-225-55-1-1.jpg"
   ]
 },
 {
@@ -31,9 +31,9 @@
   "country": "Германия",
   "price": 800,
   "images": [
-    "/images/tires/Micheline-16-225-55-2-1.jpg",
-    "/images/tires/Micheline-16-225-55-2-1.jpg",
-    "/images/tires/Micheline-16-225-55-2-1.jpg"
+    "/products/images/tires/Micheline-16-225-55-2-1.jpg",
+    "/products/images/tires/Micheline-16-225-55-2-1.jpg",
+    "/products/images/tires/Micheline-16-225-55-2-1.jpg"
   ]
 },
 {
@@ -50,9 +50,9 @@
   "country": "Германия",
   "price": 800,
   "images": [
-    "/images/tires/Micheline-16-225-55-3-1.jpg",
-    "/images/tires/Micheline-16-225-55-3-1.jpg",
-    "/images/tires/Micheline-16-225-55-3-1.jpg"
+    "/products/images/tires/Micheline-16-225-55-3-1.jpg",
+    "/products/images/tires/Micheline-16-225-55-3-1.jpg",
+    "/products/images/tires/Micheline-16-225-55-3-1.jpg"
   ]
 },
 {
@@ -69,9 +69,9 @@
   "country": "Германия",
   "price": 800,
   "images": [
-    "/images/tires/Micheline-16-225-55-4-1.jpg",
-    "/images/tires/Micheline-16-225-55-4-1.jpg",
-    "/images/tires/Micheline-16-225-55-4-1.jpg"
+    "/products/images/tires/Micheline-16-225-55-4-1.jpg",
+    "/products/images/tires/Micheline-16-225-55-4-1.jpg",
+    "/products/images/tires/Micheline-16-225-55-4-1.jpg"
   ]
 },
 {
@@ -88,9 +88,9 @@
   "country": "Германия",
   "price": 800,
   "images": [
-    "/images/tires/Micheline-16-225-55-5-1.jpg",
-    "/images/tires/Micheline-16-225-55-5-1.jpg",
-    "/images/tires/Micheline-16-225-55-5-1.jpg"
+    "/products/images/tires/Micheline-16-225-55-5-1.jpg",
+    "/products/images/tires/Micheline-16-225-55-5-1.jpg",
+    "/products/images/tires/Micheline-16-225-55-5-1.jpg"
   ]
 },
 {
@@ -107,9 +107,9 @@
   "country": "Германия",
   "price": 800,
   "images": [
-    "/images/tires/Micheline-19-255-45-6-1.jpg",
-    "/images/tires/Micheline-19-255-45-6-1.jpg",
-    "/images/tires/Micheline-19-255-45-6-1.jpg"
+    "/products/images/tires/Micheline-19-255-45-6-1.jpg",
+    "/products/images/tires/Micheline-19-255-45-6-1.jpg",
+    "/products/images/tires/Micheline-19-255-45-6-1.jpg"
   ]
 },
 {
@@ -126,9 +126,9 @@
   "country": "Германия",
   "price": 800,
   "images": [
-    "/images/tires/Micheline-15-205-35-7-1.jpg",
-    "/images/tires/Micheline-15-205-35-7-1.jpg",
-    "/images/tires/Micheline-15-205-35-7-1.jpg"
+    "/products/images/tires/Micheline-15-205-35-7-1.jpg",
+    "/products/images/tires/Micheline-15-205-35-7-1.jpg",
+    "/products/images/tires/Micheline-15-205-35-7-1.jpg"
   ]
 },
 {
@@ -146,9 +146,9 @@
   "bolt": "5*100",
   "price": 800,
   "images": [
-    "/images/tires/Micheline-17-235-75-8-1.jpg",
-    "/images/tires/Micheline-17-235-75-8-1.jpg",
-    "/images/tires/Micheline-17-235-75-8-1.jpg"
+    "/products/images/tires/Micheline-17-235-75-8-1.jpg",
+    "/products/images/tires/Micheline-17-235-75-8-1.jpg",
+    "/products/images/tires/Micheline-17-235-75-8-1.jpg"
   ]
 },
 {
@@ -165,8 +165,8 @@
   "country": "Германия",
   "price": 800,
   "images": [
-    "/images/tires/Micheline-16-195-35-9-1.jpg",
-    "/images/tires/Micheline-16-195-35-9-1.jpg",
-    "/images/tires/Micheline-16-195-35-9-1.jpg"
+    "/products/images/tires/Micheline-16-195-35-9-1.jpg",
+    "/products/images/tires/Micheline-16-195-35-9-1.jpg",
+    "/products/images/tires/Micheline-16-195-35-9-1.jpg"
   ]
 }]

@@ -14,9 +14,9 @@
       "country": "Германия",
       "price": 800,
       "images": [
-        "/images/tires/Micheline-16-225-55-4-1.jpg",
-        "/images/tires/Micheline-16-225-55-4-1.jpg",
-        "/images/tires/Micheline-16-225-55-4-1.jpg"
+        "/products/images/tires/Micheline-16-225-55-4-1.jpg",
+        "/products/images/tires/Micheline-16-225-55-4-1.jpg",
+        "/products/images/tires/Micheline-16-225-55-4-1.jpg"
       ]
     },
     {
@@ -33,9 +33,9 @@
       "country": "Германия",
       "price": 800,
       "images": [
-        "/images/tires/Micheline-16-225-55-5-1.jpg",
-        "/images/tires/Micheline-16-225-55-5-1.jpg",
-        "/images/tires/Micheline-16-225-55-5-1.jpg"
+        "/products/images/tires/Micheline-16-225-55-5-1.jpg",
+        "/products/images/tires/Micheline-16-225-55-5-1.jpg",
+        "/products/images/tires/Micheline-16-225-55-5-1.jpg"
       ]
     },
     {
@@ -52,9 +52,9 @@
       "country": "Германия",
       "price": 800,
       "images": [
-        "/images/tires/Micheline-19-255-45-6-1.jpg",
-        "/images/tires/Micheline-19-255-45-6-1.jpg",
-        "/images/tires/Micheline-19-255-45-6-1.jpg"
+        "/products/images/tires/Micheline-19-255-45-6-1.jpg",
+        "/products/images/tires/Micheline-19-255-45-6-1.jpg",
+        "/products/images/tires/Micheline-19-255-45-6-1.jpg"
       ]
     },
     {
@@ -71,9 +71,9 @@
       "country": "Германия",
       "price": 800,
       "images": [
-        "/images/tires/Micheline-15-205-35-7-1.jpg",
-        "/images/tires/Micheline-15-205-35-7-1.jpg",
-        "/images/tires/Micheline-15-205-35-7-1.jpg"
+        "/products/images/tires/Micheline-15-205-35-7-1.jpg",
+        "/products/images/tires/Micheline-15-205-35-7-1.jpg",
+        "/products/images/tires/Micheline-15-205-35-7-1.jpg"
       ]
     }
   ],
@@ -90,9 +90,9 @@
       "bolt": "4*100",
       "price": 800,
       "images": [
-        "/images/wheels/Audi-17-J6-2-1.jpg",
-        "/images/wheels/Audi-17-J6-2-2.jpg",
-        "/images/wheels/Audi-17-J6-2-3.jpg"
+        "/products/images/wheels/Audi-17-J6-2-1.jpg",
+        "/products/images/wheels/Audi-17-J6-2-2.jpg",
+        "/products/images/wheels/Audi-17-J6-2-3.jpg"
       ]
     },
     {
@@ -106,7 +106,7 @@
       "year": 2021,
       "bolt": "5*115",
       "price": 800,
-      "images": ["/images/wheels/Audi-18-J5-3-1.jpg"]
+      "images": ["/products/images/wheels/Audi-18-J5-3-1.jpg"]
     }
   ]
 }
