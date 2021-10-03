@@ -10,7 +10,12 @@ const tires = [{
   amount: 4,
   year: 2021,
   country: 'Германия',
-  price: 800
+  price: 800,
+  images: [
+    '/images/tires/Micheline-16-225-55-1-1.jpg',
+    '/images/tires/Micheline-16-225-55-1-1.jpg',
+    '/images/tires/Micheline-16-225-55-1-1.jpg'
+  ]
 },
 {
   id: 2,
@@ -24,7 +29,12 @@ const tires = [{
   amount: 4,
   year: 2021,
   country: 'Германия',
-  price: 800
+  price: 800,
+  images: [
+    '/images/tires/Micheline-16-225-55-2-1.jpg',
+    '/images/tires/Micheline-16-225-55-2-1.jpg',
+    '/images/tires/Micheline-16-225-55-2-1.jpg'
+  ]
 },
 {
   id: 3,
@@ -38,7 +48,12 @@ const tires = [{
   amount: 4,
   year: 2021,
   country: 'Германия',
-  price: 800
+  price: 800,
+  images: [
+    '/images/tires/Micheline-16-225-55-3-1.jpg',
+    '/images/tires/Micheline-16-225-55-3-1.jpg',
+    '/images/tires/Micheline-16-225-55-3-1.jpg'
+  ]
 },
 {
   id: 4,
@@ -52,8 +67,12 @@ const tires = [{
   amount: 4,
   year: 2021,
   country: 'Германия',
-
-  price: 800
+  price: 800,
+  images: [
+    '/images/tires/Micheline-16-225-55-4-1.jpg',
+    '/images/tires/Micheline-16-225-55-4-1.jpg',
+    '/images/tires/Micheline-16-225-55-4-1.jpg'
+  ]
 },
 {
   id: 5,
@@ -67,7 +86,12 @@ const tires = [{
   amount: 4,
   year: 2021,
   country: 'Германия',
-  price: 800
+  price: 800,
+  images: [
+    '/images/tires/Micheline-16-225-55-5-1.jpg',
+    '/images/tires/Micheline-16-225-55-5-1.jpg',
+    '/images/tires/Micheline-16-225-55-5-1.jpg'
+  ]
 },
 {
   id: 6,
@@ -81,7 +105,12 @@ const tires = [{
   amount: 4,
   year: 2021,
   country: 'Германия',
-  price: 800
+  price: 800,
+  images: [
+    '/images/tires/Micheline-19-255-45-6-1.jpg',
+    '/images/tires/Micheline-19-255-45-6-1.jpg',
+    '/images/tires/Micheline-19-255-45-6-1.jpg'
+  ]
 },
 {
   id: 7,
@@ -95,7 +124,12 @@ const tires = [{
   amount: 4,
   year: 2021,
   country: 'Германия',
-  price: 800
+  price: 800,
+  images: [
+    '/images/tires/Micheline-15-205-35-7-1.jpg',
+    '/images/tires/Micheline-15-205-35-7-1.jpg',
+    '/images/tires/Micheline-15-205-35-7-1.jpg'
+  ]
 },
 {
   id: 8,
@@ -110,7 +144,12 @@ const tires = [{
   year: 2021,
   country: 'Германия',
   bolt: '5*100',
-  price: 800
+  price: 800,
+  images: [
+    '/images/tires/Micheline-17-235-75-8-1.jpg',
+    '/images/tires/Micheline-17-235-75-8-1.jpg',
+    '/images/tires/Micheline-17-235-75-8-1.jpg'
+  ]
 },
 {
   id: 9,
@@ -124,37 +163,12 @@ const tires = [{
   amount: 4,
   year: 2021,
   country: 'Германия',
-  price: 800
-},
-{
-  id: 10,
-  brand: 'Micheline',
-  model: 'Energy Saver',
-  condition: 9.7,
-  radius: '13',
-  season: 'Лето',
-  width: 195,
-  height: 45,
-  amount: 4,
-  year: 2021,
-  country: 'Германия',
-  bolt: '5*100',
-  price: 800
-},
-{
-  id: 11,
-  brand: 'Micheline',
-  model: 'Energy Saver',
-  condition: 9.7,
-  radius: '15',
-  season: 'Лето',
-  width: 215,
-  height: 65,
-  amount: 4,
-  year: 2021,
-  country: 'Германия',
-  bolt: '5*100',
-  price: 800
+  price: 800,
+  images: [
+    '/images/tires/Micheline-16-195-35-9-1.jpg',
+    '/images/tires/Micheline-16-195-35-9-1.jpg',
+    '/images/tires/Micheline-16-195-35-9-1.jpg'
+  ]
 }
 
 ]

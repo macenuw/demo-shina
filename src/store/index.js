@@ -6,15 +6,13 @@ import wheels from '../assets/js/wheels' // TODO: DELETE
 
 const config = {
   tires: {
-    filters: ['radius', 'width', 'height', 'season'],
-    catalogUrl:
-      'https://drive.google.com/file/d/13IZi1qYKhsVoq4AxNwyY3bknPi5SpXPI/view?usp=sharing',
+    filters: ['season', 'radius', 'width', 'height'],
+    catalogUrl: 'https://drive.google.com/file/d/13IZi1qYKhsVoq4AxNwyY3bknPi5SpXPI/view?usp=sharing',
     mocks: tires // TODO: DELETE
   },
   wheels: {
     filters: ['radius', 'width', 'bolt'],
-    catalogUrl:
-      'https://drive.google.com/file/d/1aNf1U0huu_8rf78qAXBIc5WD5pzlTJQN/view?usp=sharing',
+    catalogUrl: 'https://drive.google.com/file/d/1aNf1U0huu_8rf78qAXBIc5WD5pzlTJQN/view?usp=sharing',
     mocks: wheels // TODO: DELETE
   }
 }
@@ -74,7 +72,10 @@ export default new Vuex.Store({
 
       state.filters = _filters
     },
-    updateCatalogFilter: (state, { category, name }) => {
+    updateCatalogFilter: (state, {
+      category,
+      name
+    }) => {
       state.filters = state.filters.map(filterCategory => {
         return filterCategory.map(filter => {
           if (category === filter.category && name === filter.name) {
@@ -86,10 +87,15 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    fetchCatalog ({ state, commit }) {
+    fetchCatalog ({
+      state,
+      commit
+    }) {
       axios
         .get(config[state.type].catalogUrl, {
-          headers: { 'Access-Control-Allow-Origin': '*' }
+          headers: {
+            'Access-Control-Allow-Origin': '*'
+          }
         })
         .then(response => {
           commit('setCatalog', response.data)
@@ -101,7 +107,9 @@ export default new Vuex.Store({
           commit('setCatalogFilters', config[state.type].mocks)
         })
     },
-    updateCatalogFilter ({ commit }, data) {
+    updateCatalogFilter ({
+      commit
+    }, data) {
       commit('updateCatalogFilter', data)
     }
   }
