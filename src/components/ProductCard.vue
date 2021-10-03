@@ -66,8 +66,8 @@ export default {
         brand, radius, width, height, id
       } = this.card
       return this.isTire
-        ? `/images/${this.type}/${brand}-${radius}-${width}-${height}-${id}-1.jpg`
-        : `/images/${this.type}/${brand}-${radius}-${width}-${id}-1.jpg`
+        ? `/products/images/${this.type}/${brand}-${radius}-${width}-${height}-${id}-1.jpg`
+        : `/products/images/${this.type}/${brand}-${radius}-${width}-${id}-1.jpg`
     },
     imageAlt () {
       const {
