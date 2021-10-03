@@ -130,13 +130,20 @@
     &__contact {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         max-width: 800px;
+        margin-bottom: 50px;
         @media(max-width: 850px) {
             flex-direction: column;
+            margin-bottom: 30px;
         }
         .contact__tel {
             color: white;
             font-size: 36px;
+            transition: .3s;
+            &:hover{
+              color: red;
+            }
             @media(max-width: 850px) {
                 margin-right: 0;
                 text-align: center;
@@ -155,7 +162,6 @@
     &__social {
         display: flex;
         align-items: center;
-        margin-bottom: 50px;
     }
     &__item:not(:last-child) {
         margin-right: 30px;

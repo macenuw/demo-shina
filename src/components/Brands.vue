@@ -96,7 +96,7 @@ export default {
         background-color: #FFFFFF;
         border-radius: 8px;
         width: 280px !important;
-        height: 100;
+        height: 100px;
         display: flex !important;
         flex-direction: column;
         justify-content: center;
