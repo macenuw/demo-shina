@@ -36,7 +36,7 @@ export default new Vuex.Store({
       if (!activeFilters.length) return state.catalog
 
       return state.catalog.filter(item => {
-        return activeFilters.some(filter => filter.name === item[filter.category])
+        return activeFilters.every(filter => filter.name === item[filter.category])
       })
     },
     catalogItem: state => id => state.catalog.find(item => item.id === id),
@@ -78,8 +78,12 @@ export default new Vuex.Store({
     }) => {
       state.filters = state.filters.map(filterCategory => {
         return filterCategory.map(filter => {
-          if (category === filter.category && name === filter.name) {
-            filter.active = !filter.active
+          if (category === filter.category) {
+            if (name === filter.name) {
+              filter.active = !filter.active
+            } else {
+              filter.active = false
+            }
           }
           return filter
         })
