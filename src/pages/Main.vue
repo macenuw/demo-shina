@@ -1,9 +1,9 @@
 <template>
   <main>
     <TopSection />
-    <Promo :catalog="tires" type="tires" id="content" />
+    <Promo v-if="tires.length" :catalog="tires" type="tires" id="content" />
     <Brands />
-    <Promo :catalog="wheels" type="wheels" />
+    <Promo v-if="wheels.length" :catalog="wheels" type="wheels" />
     <Info />
     <Contacts />
     <Question />
