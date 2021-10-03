@@ -6,7 +6,7 @@
             <span class="product-card__brand">{{card.brand}}</span>
         </div>
         <div class="product-card__info">
-            <h3 class="product-card__name">{{card.brand}}{{card.model}}</h3>
+            <h3 class="product-card__name">{{card.brand}}{{isTire && card.model}}</h3>
             <div class="product-card__top-info">
                 <span class="product-card__reit">Состояние {{card.condition}}</span>
                 <span class="product-card__number">Код товара: {{card.id}}</span>
@@ -16,7 +16,7 @@
                     <span class="product-card__category">Радиус</span>
                     <span class="product-card__category-info">R{{card.radius}}</span>
                 </li>
-                <li class="product-card__info-item product-card__info-item--season">
+                <li v-if="isTire" class="product-card__info-item product-card__info-item--season">
                     <span class="product-card__category">Сезон</span>
                     <span class="product-card__category-info">{{card.season}}</span>
                 </li>
@@ -24,7 +24,7 @@
                     <span class="product-card__category">Ширина</span>
                     <span class="product-card__category-info">{{card.width}}</span>
                 </li>
-                <li class="product-card__info-item product-card__info-item--height">
+                <li v-if="isTire" class="product-card__info-item product-card__info-item--height">
                     <span class="product-card__category">Высота</span>
                     <span class="product-card__category-info">{{card.height}}</span>
                 </li>
@@ -32,13 +32,17 @@
                     <span class="product-card__category">Колличество</span>
                     <span class="product-card__category-info">{{card.amount}}шт</span>
                 </li>
-                <li class="product-card__info-item product-card__info-item--year">
+                <li v-if="isTire" class="product-card__info-item product-card__info-item--year">
                     <span class="product-card__category">Год Изготовления</span>
                     <span class="product-card__category-info">{{card.year}}</span>
                 </li>
                 <li class="product-card__info-item product-card__info-item--country">
                     <span class="product-card__category">Производство</span>
                     <span class="product-card__category-info">{{card.country}}</span>
+                </li>
+                <li v-if="!isTire" class="product-card__info-item product-card__info-item--bolt-pattern">
+                    <span class="product-card__category">Разболтовка</span>
+                    <span class="product-card__category-info">{{card.bolt}}</span>
                 </li>
             </ul>
             <div class="product-card__price-inner">
@@ -54,17 +58,24 @@ export default {
   name: 'ProductCard',
   props: ['card', 'type'],
   computed: {
+    isTire () {
+      return this.type === 'tires'
+    },
     imageUrl () {
       const {
         brand, radius, width, height, id
       } = this.card
-      return `/images/tires/${brand}-${radius}-${width}-${height}-${id}-1.jpg`
+      return this.isTire
+        ? `/images/${this.type}/${brand}-${radius}-${width}-${height}-${id}-1.jpg`
+        : `/images/${this.type}/${brand}-${radius}-${width}-${id}-1.jpg`
     },
     imageAlt () {
       const {
         brand, model, radius, width, height
       } = this.card
-      return `Шины ${brand} ${model} R${radius}/${width}/${height}`
+      return this.isTire
+        ? `Шины ${brand} ${model} R${radius}/${width}/${height}`
+        : `Диски ${brand} ${model} R${radius}/${width}`
     }
   }
 }

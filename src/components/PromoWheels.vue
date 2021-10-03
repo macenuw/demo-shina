@@ -2,19 +2,19 @@
   <main class="new-wheels container" id="content">
         <h2 class="title">Последние поступления Шин</h2>
         <div class="products-grid">
-          <ProductCardWheels v-for="tire in tires" :key="tire.id" :card="tire"/>
+          <ProductCard v-for="tire in tires" :key="tire.id" :card="tire"/>
         </div>
         <router-link class="show-more" :to="{name:'CatalogWheels'}">Показать еще</router-link>
     </main>
 </template>
 
 <script>
-import ProductCardWheels from './ProductCardWheel.vue'
+import ProductCard from './ProductCard.vue'
 
 export default {
   name: 'PromoWheels',
   components: {
-    ProductCardWheels
+    ProductCard
   },
   data: () => ({
     tires: [
