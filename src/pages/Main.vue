@@ -33,9 +33,8 @@ export default {
     axios
       .get('/products/info/promo.json')
       .then((response) => {
-        console.log('response :>> ', response)
-        this.tires = response.tires
-        this.wheels = response.wheels
+        this.tires = response.data?.tires || []
+        this.wheels = response.data?.wheels || []
       })
     this.tires = []
     this.wheels = []
