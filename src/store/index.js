@@ -1,19 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-import tires from '../assets/js/tires' // TODO: DELETE
-import wheels from '../assets/js/wheels' // TODO: DELETE
 
 const config = {
   tires: {
     filters: ['season', 'radius', 'width', 'height'],
-    catalogUrl: 'https://drive.google.com/file/d/13IZi1qYKhsVoq4AxNwyY3bknPi5SpXPI/view?usp=sharing',
-    mocks: tires // TODO: DELETE
+    catalogUrl: 'http://demo-shina.od.ua/products/info/tires.json'
   },
   wheels: {
     filters: ['radius', 'width', 'bolt'],
-    catalogUrl: 'https://drive.google.com/file/d/1aNf1U0huu_8rf78qAXBIc5WD5pzlTJQN/view?usp=sharing',
-    mocks: wheels // TODO: DELETE
+    catalogUrl: 'http://demo-shina.od.ua/products/info/wheels.json'
   }
 }
 
@@ -96,19 +92,11 @@ export default new Vuex.Store({
       commit
     }) {
       axios
-        .get(config[state.type].catalogUrl, {
-          headers: {
-            'Access-Control-Allow-Origin': '*'
-          }
-        })
+        .get(config[state.type].catalogUrl)
         .then(response => {
+          console.log('store response :>> ', response)
           commit('setCatalog', response.data)
           commit('setCatalogFilters', response.data)
-        })
-        // TODO: delete this after place project on domain (FTP)
-        .finally(_ => {
-          commit('setCatalog', config[state.type].mocks)
-          commit('setCatalogFilters', config[state.type].mocks)
         })
     },
     updateCatalogFilter ({

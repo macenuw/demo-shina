@@ -3,10 +3,11 @@
     <Brands class="brands--bg" />
     <div class="new-wheels__inner container">
       <h2 class="new-wheels__title title">{{ terms[`catalog_${catalogType}`]}}</h2>
-      <Filters />
-      <div class="products-grid">
+      <Filters v-if="catalog.length"/>
+      <div class="products-grid" v-if="catalog.length">
         <ProductCard v-for="item in catalog" :key="item.id" :card="item" :type="catalogType" />
       </div>
+      <div v-else>Товаров не найдено.</div>
     </div>
   </main>
 </template>
