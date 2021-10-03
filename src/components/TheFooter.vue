@@ -55,8 +55,8 @@
                 </ul>
             </div>
             <div class="footer__address">
-                Жевахова гора 1, Об'їзна дорога, Авторынок Куяльник
-                (Яма) контейнер № 90 № 91 № 92, Одеса, Одеська область
+                г. Одесса Жевахова гора 1, Об'їзна дорога,<br>
+                Авторынок Куяльник (Яма) контейнер № 90 № 91 № 92
             </div>
         </div>
     </footer>
@@ -132,7 +132,7 @@
         justify-content: space-between;
         align-items: center;
         max-width: 800px;
-        margin-bottom: 50px;
+        height: 100px;
         @media(max-width: 850px) {
             flex-direction: column;
             margin-bottom: 30px;
