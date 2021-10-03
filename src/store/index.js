@@ -5,11 +5,11 @@ import axios from 'axios'
 const config = {
   tires: {
     filters: ['season', 'radius', 'width', 'height'],
-    catalogUrl: 'http://demo-shina.od.ua/products/info/tires.json'
+    catalogUrl: '/products/info/tires.json'
   },
   wheels: {
     filters: ['radius', 'width', 'bolt'],
-    catalogUrl: 'http://demo-shina.od.ua/products/info/wheels.json'
+    catalogUrl: '/products/info/wheels.json'
   }
 }
 

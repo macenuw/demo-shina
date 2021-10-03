@@ -31,7 +31,7 @@ export default {
   },
   created () {
     axios
-      .get('http://demo-shina.od.ua/products/info/promo.json')
+      .get('/products/info/promo.json')
       .then((response) => {
         console.log('response :>> ', response)
         this.tires = response.tires
