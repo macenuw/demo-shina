@@ -1,40 +1,56 @@
 <template>
   <main>
-    <TopSection/>
-    <PromoTires/>
-    <Brands/>
-    <PromoWheels/>
-    <Info/>
-    <Contacts/>
-    <Question/>
+    <TopSection />
+    <Promo :catalog="tires" type="tires" id="content" />
+    <Brands />
+    <Promo :catalog="wheels" type="wheels" />
+    <Info />
+    <Contacts />
+    <Question />
   </main>
 </template>
 
 <script>
 import TopSection from '../components/TopSection.vue'
-import PromoTires from '../components/PromoTires.vue'
+import Promo from '../components/Promo.vue'
 import Brands from '../components/Brands.vue'
-import PromoWheels from '../components/PromoWheels.vue'
 import Info from '../components/Info.vue'
 import Contacts from '../components/Contacts.vue'
 import Question from '../components/Question.vue'
+import axios from 'axios'
 
 export default {
   name: 'MainPage',
   components: {
     TopSection,
-    PromoTires,
+    Promo,
     Brands,
-    PromoWheels,
     Info,
     Contacts,
     Question
+  },
+  created () {
+    axios
+      .get('http://demo-shina.od.ua/products/info/promo.json')
+      .then((response) => {
+        console.log('response :>> ', response)
+        this.tires = response.tires
+        this.wheels = response.wheels
+      })
+    this.tires = []
+    this.wheels = []
+  },
+  data () {
+    return {
+      tires: [],
+      wheels: []
+    }
   }
 }
 </script>
 
 <style lang="scss">
- @import '/src/assets/css/reset.scss';
- @import '/src/assets/css/fonts.scss';
- @import '/src/assets/css/global.scss';
+@import "/src/assets/css/reset.scss";
+@import "/src/assets/css/fonts.scss";
+@import "/src/assets/css/global.scss";
 </style>
