@@ -55,6 +55,7 @@ export default {
   right: 0;
   z-index: 999;
   background-color: black;
+  height: 95px;
 
   &--bg {
     background-color: black;
