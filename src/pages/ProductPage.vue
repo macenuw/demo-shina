@@ -57,7 +57,7 @@
 import Contacts from '../components/Contacts.vue'
 import Brands from '../components/Brands.vue'
 import ProductsCarousel from '../components/ProductsCarousel.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'ProductPage',
@@ -66,11 +66,21 @@ export default {
     Brands,
     ProductsCarousel
   },
-  computed: {
-    ...mapGetters(['getWheel']),
-    product () {
-      return this.getWheel(Number(this.$route.params?.id))
+  async created () {
+    if (this.$route.params.type) {
+      await this.setCatalogType(this.$route.params.type)
+      await this.fetchCatalog()
     }
+  },
+  computed: {
+    ...mapGetters(['catalogItem']),
+    product () {
+      return this.catalogItem(Number(this.$route.params.id))
+    }
+  },
+  methods: {
+    ...mapMutations(['setCatalogType']),
+    ...mapActions(['fetchCatalog'])
   }
 }
 </script>
