@@ -26,7 +26,7 @@
                 </li>
             </ul>
             <div class="footer__contact">
-                <a href="tel+380935417781" class="contact__tel">0935417781 Сергей</a>
+                <a href="tel:+380935417781" class="contact__tel">0935417781 Сергей</a>
                 <ul class="contact__social">
                     <li class="contact__item">
                         <a href="#" class="contact__link">
